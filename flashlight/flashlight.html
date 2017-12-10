@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <style>
+      .search {
+        width: 100%;
+      }
+      .hit {
+        padding: 1em 0 1em 0;
+        border-bottom: 1px solid silver;
+      }
+    </style>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="columns">
+          <div class="column is-one-third"></div>
+          <div class="column">
+            <section class="section">
+              <h1 class="is-size-1">Elasticsearch flashlight.</h1>
+              <form v-on:submit.prevent="search">
+                <input type="hidden" name="x">
+                <div class="field has-addons">
+                  <div class="control search">
+                      <input class="input" type="text" v-model="query">
+                  </div>
+                  <div class="control">
+                    <a class="button is-info" v-on:click="search">Search</a> 
+                  </div>
+                </div>
+              </form>
+          
+              <div v-if="results.hits.total">found {{results.hits.total.toLocaleString()}} results in {{results.took}} ms, {{currentPageDescription}}</div>
+            </section>
+            <section class="section">
+              <div v-for="(hit, index) in results.hits.hits" class="hit">
+                <span>{{index + firstResult}}.</span>
+                <span class="title is-4 is-marginless">{{hit._source.title}}</span>
+                <p>{{hit._source.opening_text}}</p>
+                <div class="tags">
+                  <span class="tag" v-for="category in hit._source.category">{{category}}</span>
+                </div>
+              </div>
+            </section>
+            <section class="section" v-if="results.hits.total">
+              <nav class="pagination is-centered">
+                <a href="#" class="pagination-previous" v-bind:disabled="thisPage <= 1" v-on:click="thisPage--; search()">&lt;</a>
+                <a href="#" class="pagination-next" v-bind:disabled="thisPage >= lastPage" v-on:click="thisPage++; search()">&gt;</a>
+                <div class="pagination-list">{{currentPageDescription}}</div>
+              </nav>
+            </section> 
+          </div>
+        </div>
+      </div>
+      <script>
+          var app = new Vue({
+            el: '#app',
+            data: {
+              query: '',
+              hitsPerPage: 10,
+              thisPage: 1,
+              results: {
+                took: null,
+                hits: []
+              }
+            },
+            computed: {
+              lastPage: function() {
+                return Math.floor(this.results.hits.total / this.hitsPerPage) + 1
+              },
+              firstResult: function() {
+                return (this.thisPage - 1) * this.hitsPerPage + 1
+              },
+              currentPageDescription: function() {
+                return 'showing results ' + this.firstResult + ' to ' + (Math.min(this.thisPage * this.hitsPerPage, this.results.hits.total)) + ' (page ' + this.thisPage + ' of ' + this.lastPage.toLocaleString() + ')'
+              }
+            },
+            methods: {
+              search: function() {
+                console.log('you wanna search, eh?', this.query)
+                axios.post('http://localhost:9200/enwiki/_search', {
+                  from: (this.thisPage - 1) * this.hitsPerPage,
+                  size: this.hitsPerPage,
+                  query: this.query ? {
+                    match: {
+                      text: this.query
+                    }
+                  } : {match_all: {}}
+                })
+                .then(function (response) {
+                  console.log('yay got', response)
+                  Vue.set(app.results, 'took', response.data.took)
+                  Vue.set(app.results, 'hits', response.data.hits)
+                })
+                .catch(function (error) {
+                  console.error(error)
+                })
+              }
+            }
+          })
+        </script>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+{
+  "dynamic": "false",
+  "_all": {
+    "enabled": false
+  },
+  "properties": {
+    "auxiliary_text": {
+      "enabled": false
+    },
+    "category": {
+      "type": "keyword"
+    },
+    "content_model": {
+      "enabled": false
+    },
+    "coordinates": {
+      "enabled": false
+    },
+    "external_link": {
+      "enabled": false
+    },
+    "file_bits": {
+      "enabled": false
+    },
+    "file_height": {
+      "enabled": false
+    },
+    "file_media_type": {
+      "enabled": false
+    },
+    "file_mime": {
+      "enabled": false
+    },
+    "file_resolution": {
+      "enabled": false
+    },
+    "file_size": {
+      "enabled": false
+    },
+    "file_text": {
+      "enabled": false
+    },
+    "file_width": {
+      "enabled": false
+    },
+    "heading": {
+      "enabled": false
+    },
+    "incoming_links": {
+      "enabled": false
+    },
+    "language": {
+      "enabled": false
+    },
+    "local_sites_with_dupe": {
+      "enabled": false
+    },
+    "namespace": {
+      "enabled": false
+    },
+    "namespace_text": {
+      "enabled": false
+    },
+    "opening_text": {
+      "enabled": false
+    },
+    "outgoing_link": {
+      "type": "text",
+      "norms": false,
+      "index_options": "docs",
+      "analyzer": "keyword"
+    },
+    "popularity_score": {
+      "enabled": false
+    },
+    "redirect": {
+      "enabled": false
+    },
+    "source_text": {
+      "enabled": false
+    },
+    "suggest": {
+      "enabled": false
+    },
+    "template": {
+      "enabled": false
+    },
+    "text": {
+      "type": "text",
+      "index_options": "offsets",
+      "similarity": "BM25",
+      "fields": {
+        "plain": {
+          "type": "text",
+          "index_options": "offsets",
+          "similarity": "BM25",
+          "analyzer": "plain",
+          "search_analyzer": "plain_search",
+          "position_increment_gap": 10
+        },
+        "word_count": {
+          "type": "token_count",
+          "store": true,
+          "analyzer": "plain"
+        }
+      },
+      "analyzer": "text",
+      "search_analyzer": "text_search",
+      "position_increment_gap": 10
+    },
+    "text_bytes": {
+      "enabled": false
+    },
+    "timestamp": {
+      "enabled": false
+    },
+    "title": {
+      "type": "text",
+      "similarity": "BM25",
+      "fields": {
+        "keyword": {
+          "type": "text",
+          "norms": false,
+          "index_options": "docs",
+          "similarity": "BM25",
+          "analyzer": "keyword"
+        },
+        "near_match": {
+          "type": "text",
+          "norms": false,
+          "index_options": "docs",
+          "similarity": "BM25",
+          "analyzer": "near_match"
+        },
+        "near_match_asciifolding": {
+          "type": "text",
+          "norms": false,
+          "index_options": "docs",
+          "similarity": "BM25",
+          "analyzer": "near_match_asciifolding"
+        },
+        "plain": {
+          "type": "text",
+          "similarity": "BM25",
+          "analyzer": "plain",
+          "search_analyzer": "plain_search",
+          "position_increment_gap": 10,
+          "fielddata": true
+        },
+        "prefix": {
+          "type": "text",
+          "norms": false,
+          "index_options": "docs",
+          "similarity": "BM25",
+          "analyzer": "prefix",
+          "search_analyzer": "near_match"
+        },
+        "prefix_asciifolding": {
+          "type": "text",
+          "norms": false,
+          "index_options": "docs",
+          "similarity": "BM25",
+          "analyzer": "prefix_asciifolding",
+          "search_analyzer": "near_match_asciifolding"
+        }
+      },
+      "analyzer": "text",
+      "search_analyzer": "text_search",
+      "position_increment_gap": 10
+    },
+    "wiki": {
+      "enabled": false
+    },
+    "wikibase_item": {
+      "enabled": false
+    }
+  }
+}

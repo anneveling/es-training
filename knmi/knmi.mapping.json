@@ -1,0 +1,56 @@
+{
+  "dynamic": "false",
+  "_all": {
+    "enabled": false
+  },
+  "properties": {
+    "date": {
+      "type": "date"
+    },
+    "station": {
+      "type": "keyword"
+    },
+    "location": {
+      "type": "geo_point"
+    },
+    "sunshine": {
+      "type": "float"
+    },
+    "temperature": {
+      "properties": {
+        "avg": {
+          "type": "float"
+        },
+        "max": {
+          "type": "float"
+        },
+        "min": {
+          "type": "float"
+        }
+      }
+    },
+    "rain": {
+      "properties": {
+        "duration": {
+          "type": "float"
+        },
+        "amount": {
+          "type": "float"
+        }
+      }
+    },
+    "wind": {
+      "properties": {
+        "avg": {
+          "type": "float"
+        },
+        "max": {
+          "type": "float"
+        },
+        "direction": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

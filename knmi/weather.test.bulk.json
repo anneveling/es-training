@@ -1,0 +1,11 @@
+{"index":{"_index":"knmi","_type":"weather"}}
+{"stationId":"209","station":"IJmond","d":"20010201","date":"2001-02-01","location":{"lat":52.464,"lon":4.517},"ddvec":236,"fg":24,"fhx":50,"wind":{"avg":2.4,"max":5,"direction":"sw"}}
+{"index":{"_index":"knmi","_type":"weather"}}
+{"stationId":"209","station":"IJmond","d":"20010202","date":"2001-02-02","location":{"lat":52.464,"lon":4.517},"ddvec":150,"fg":58,"fhx":80,"wind":{"avg":5.8,"max":8,"direction":"se"}}
+{"index":{"_index":"knmi","_type":"weather"}}
+{"stationId":"209","station":"IJmond","d":"20010203","date":"2001-02-03","location":{"lat":52.464,"lon":4.517},"ddvec":106,"fg":66,"fhx":90,"wind":{"avg":6.6,"max":9,"direction":"e"}}
+{"index":{"_index":"knmi","_type":"weather"}}
+{"stationId":"209","station":"IJmond","d":"20010204","date":"2001-02-04","location":{"lat":52.464,"lon":4.517},"ddvec":115,"fg":75,"fhx":110,"wind":{"avg":7.5,"max":11,"direction":"se"}}
+{"index":{"_index":"knmi","_type":"weather"}}
+{"stationId":"209","station":"IJmond","d":"20010205","date":"2001-02-05","location":{"lat":52.464,"lon":4.517},"ddvec":222,"fg":112,"fhx":140,"wind":{"avg":11.2,"max":14,"direction":"sw"}}
+{"index":{"_index":"knmi","_type":"weather"}}
