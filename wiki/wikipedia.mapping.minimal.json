@@ -1,0 +1,143 @@
+{
+  "dynamic": "false",
+  "_all": {
+    "enabled": false
+  },
+  "properties": {
+    "auxiliary_text": {
+      "enabled": false
+    },
+    "category": {
+      "type": "keyword"
+    },
+    "content_model": {
+      "enabled": false
+    },
+    "coordinates": {
+      "enabled": false
+    },
+    "external_link": {
+      "enabled": false
+    },
+    "file_bits": {
+      "enabled": false
+    },
+    "file_height": {
+      "enabled": false
+    },
+    "file_media_type": {
+      "enabled": false
+    },
+    "file_mime": {
+      "enabled": false
+    },
+    "file_resolution": {
+      "enabled": false
+    },
+    "file_size": {
+      "enabled": false
+    },
+    "file_text": {
+      "enabled": false
+    },
+    "file_width": {
+      "enabled": false
+    },
+    "heading": {
+      "enabled": false
+    },
+    "incoming_links": {
+      "enabled": false
+    },
+    "language": {
+      "enabled": false
+    },
+    "local_sites_with_dupe": {
+      "enabled": false
+    },
+    "namespace": {
+      "enabled": false
+    },
+    "namespace_text": {
+      "enabled": false
+    },
+    "opening_text": {
+      "enabled": false
+    },
+    "outgoing_link": {
+      "type": "text",
+      "norms": false,
+      "index_options": "docs",
+      "analyzer": "keyword"
+    },
+    "popularity_score": {
+      "enabled": false
+    },
+    "redirect": {
+      "enabled": false
+    },
+    "source_text": {
+      "enabled": false
+    },
+    "suggest": {
+      "enabled": false
+    },
+    "template": {
+      "enabled": false
+    },
+    "text": {
+      "type": "text",
+      "index_options": "offsets",
+      "fields": {
+        "plain": {
+          "type": "text",
+          "index_options": "offsets",
+          
+          "position_increment_gap": 10
+        }
+      },
+      "analyzer": "text",
+      "position_increment_gap": 10
+    },
+    "text_bytes": {
+      "enabled": false
+    },
+    "timestamp": {
+      "enabled": false
+    },
+    "title": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "text",
+          "norms": false,
+          "analyzer": "keyword"
+        },
+        "near_match": {
+          "type": "text",
+          "norms": false
+        },
+        
+        "plain": {
+          "type": "text",
+          
+          "position_increment_gap": 10,
+          "fielddata": true
+        },
+        "prefix": {
+          "type": "text",
+          "norms": false
+          
+        }
+      },
+      "analyzer": "text",
+      "position_increment_gap": 10
+    },
+    "wiki": {
+      "enabled": false
+    },
+    "wikibase_item": {
+      "enabled": false
+    }
+  }
+}
